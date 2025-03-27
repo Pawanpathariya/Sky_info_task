@@ -88,14 +88,38 @@ const DeleteProduct=async(req,res)=>{
 }
 
 const DeleteSubcat=async(req,res)=>{
-const {category,subCategory}=(req.body)
-console.log(category,subCategory)
-const categ=await Catmodel.findOne({category:category})
-await Subcatmodel.findOneAndDelete({SubCategory:subCategory,CategoryId:categ._id})
-await Productmodel.deleteMany({Subcategory:subCategory})
-res.send("ok")
+    try {
+        const {category,subCategory}=(req.body)
+        const categ=await Catmodel.findOne({category:category})
+        await Subcatmodel.findOneAndDelete({SubCategory:subCategory,CategoryId:categ._id})
+        await Productmodel.deleteMany({Subcategory:subCategory})
+        res.send("ok")
+    } catch (error) {
+        console.log(error);
+        res.status(500).send({message:"Something went wrong"})
+    }
+}
+
+const getProduct=async(req,res)=>{
+    try {
+        const{id}=req.body
+        const product=await Productmodel.findById(id)
+        res.send(product)
+    } catch (error) {
+        console.log(error);
+        res.status(500).send({message:"Something went wrong"})
+    }
+}
+const UpdateProduct=async(req,res)=>{
+    try {
+        const{id,category,subCategory,product}=req.body
+        await Productmodel.findByIdAndUpdate(id,{Category:category,Subcategory:subCategory,Proname:product})
+        res.send("ok")
+    } catch (error) {
+        console.log(error);
+        res.status(500).send({message:"Something went wrong"})
+    }
 }
 
 
-
-module.exports={CategoryAdd,GetCategory,SubCategoryAdd,GetSubCategory,AddProduct,ViewProduct,DeleteProduct,DeleteSubcat}
+module.exports={CategoryAdd,GetCategory,SubCategoryAdd,GetSubCategory,AddProduct,ViewProduct,DeleteProduct,DeleteSubcat,getProduct,UpdateProduct}

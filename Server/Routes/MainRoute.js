@@ -9,5 +9,7 @@ router.post("/addproduct",MainCont.AddProduct)
 router.post("/viewproduct",MainCont.ViewProduct)
 router.post("/deleteproduct",MainCont.DeleteProduct)
 router.post("/deletesubcat",MainCont.DeleteSubcat)
+router.post('/getproduct',MainCont.getProduct)
+router.post('/updateproduct',MainCont.UpdateProduct)
 
 module.exports=router

@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 const Display=()=>{
+  const navigate=useNavigate();
     const [category, setCategory] = useState([]);
     const [subData, setSubData] = useState([]);
     const [subCategory, setSubCategory] = useState("");
@@ -63,9 +65,17 @@ const ans=product.map((key)=>{
       <td >{key.Category}</td>
       <td>{key.Subcategory}</td>
       <td><button onClick={() => handleDelete(key._id)}>Delete</button></td>
+      <td><button onClick={() => handleEdit(key._id)}>Edit</button></td>
     </tr>
   )
 })
+
+
+
+
+const handleEdit = async (id) => {
+navigate('/update/'+id)
+}
 
 
     return (
@@ -107,6 +117,7 @@ const ans=product.map((key)=>{
     <th>Category</th>
     <th>SubCategory</th>
     <th>Delete</th>
+    <th>Edit</th>
 </tr>
 {ans}
 </table>
