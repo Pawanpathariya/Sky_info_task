@@ -83,7 +83,7 @@ alert("SubCategory Deleted")
       </select>
       <br />
       <button onClick={handleSubmit}>
-        Submit
+        Delete
       </button>
 
       </div>

@@ -122,4 +122,18 @@ const UpdateProduct=async(req,res)=>{
 }
 
 
-module.exports={CategoryAdd,GetCategory,SubCategoryAdd,GetSubCategory,AddProduct,ViewProduct,DeleteProduct,DeleteSubcat,getProduct,UpdateProduct}
+const DeleteCat=async(req,res)=>{
+    try {
+        const {category}=req.body
+        await Catmodel.findOneAndDelete({category:category})
+        await Subcatmodel.deleteMany({Category:category})
+        await Productmodel.deleteMany({Category:category})
+        res.send("ok")
+    } catch (error) {
+        console.log(error);
+        res.status(500).send({message:"Something went wrong"})
+    }
+}
+
+
+module.exports={CategoryAdd,GetCategory,SubCategoryAdd,GetSubCategory,AddProduct,ViewProduct,DeleteProduct,DeleteSubcat,getProduct,UpdateProduct,DeleteCat}

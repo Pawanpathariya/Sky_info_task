@@ -11,6 +11,7 @@ return(
 <Link to="/product">Product</Link>
 <Link to="/display">Display</Link>
 <Link to="/delsub">Delete SubCategory</Link>
+<Link to="/delcat">Delete Category</Link>
 </nav>
 </>
 )

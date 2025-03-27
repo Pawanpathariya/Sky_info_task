@@ -7,6 +7,7 @@ import Display from "./pages/Display"
 import Layout from "./Layout"
 import DeleteSubcat from "./pages/DeleteSubcat"
 import Update from "./pages/Update"
+import DeleteCat from "./pages/DeleteCat"
 const App=()=>{
   return(
     <>
@@ -21,6 +22,7 @@ const App=()=>{
         <Route path="/product" element={<Product/>}/>
         <Route path="/display" element={<Display/>}/>
          <Route path="/delsub" element={<DeleteSubcat/>}/>
+         <Route path="/delcat" element={<DeleteCat/>}/>
          <Route path="/update/:id" element={<Update/>}/>
         </Route>
       </Routes>
