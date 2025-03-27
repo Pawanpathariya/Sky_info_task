@@ -47,6 +47,7 @@ alert("SubCategory Added")
 
 Select Category:
         <select name="category" value={cat} onChange={(e) => setcat(e.target.value)}>
+        <option value="">--Select Category--</option>
           {ans}
         </select> <br />
 
