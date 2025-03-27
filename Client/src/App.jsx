@@ -5,6 +5,7 @@ import SubCategory from "./pages/subCategory"
 import Product from "./pages/Product"
 import Display from "./pages/Display"
 import Layout from "./Layout"
+import DeleteSubcat from "./pages/DeleteSubcat"
 const App=()=>{
   return(
     <>
@@ -18,7 +19,7 @@ const App=()=>{
         <Route path="/subcategory" element={<SubCategory/>}/>
         <Route path="/product" element={<Product/>}/>
         <Route path="/display" element={<Display/>}/>
-
+         <Route path="/delsub" element={<DeleteSubcat/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

@@ -87,8 +87,15 @@ const DeleteProduct=async(req,res)=>{
     }
 }
 
+const DeleteSubcat=async(req,res)=>{
+const {category,subCategory}=(req.body)
+console.log(category,subCategory)
+const categ=await Catmodel.findOne({category:category})
+await Subcatmodel.findOneAndDelete({SubCategory:subCategory,CategoryId:categ._id})
+await Productmodel.deleteMany({Subcategory:subCategory})
+res.send("ok")
+}
 
 
 
-
-module.exports={CategoryAdd,GetCategory,SubCategoryAdd,GetSubCategory,AddProduct,ViewProduct,DeleteProduct}
+module.exports={CategoryAdd,GetCategory,SubCategoryAdd,GetSubCategory,AddProduct,ViewProduct,DeleteProduct,DeleteSubcat}

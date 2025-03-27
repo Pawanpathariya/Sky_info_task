@@ -10,6 +10,7 @@ return(
 <Link to="/subcategory">SubCategory</Link>
 <Link to="/product">Product</Link>
 <Link to="/display">Display</Link>
+<Link to="/delsub">Delete SubCategory</Link>
 </nav>
 </>
 )

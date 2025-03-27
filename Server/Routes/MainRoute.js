@@ -8,4 +8,6 @@ router.post("/getsubcategory",MainCont.GetSubCategory)
 router.post("/addproduct",MainCont.AddProduct)
 router.post("/viewproduct",MainCont.ViewProduct)
 router.post("/deleteproduct",MainCont.DeleteProduct)
+router.post("/deletesubcat",MainCont.DeleteSubcat)
+
 module.exports=router
